@@ -15,7 +15,7 @@ interface todo {
 const App = () => {
   const [todos, setTodos] = useState<todo[]>([]);
 
-  const  addTodo = (title: string) => {
+  const addTodo = (title: string) => {
       setTodos((currentTodos) => [
             ...currentTodos,
             {
@@ -43,12 +43,18 @@ const App = () => {
     )
   }
 
+  const deleteTodos = () => {
+    setTodos(
+      todos.filter(todo => !todo.completed)
+    )
+  }
+
   return (
     <>
       <NewTodoForm onSubmit={addTodo}/>
       <h1 className="header">Todo List</h1>
       <ul className="list">
-        {todos.length === 0 && "No Todos"}
+        {todos.length === 0 ? "No Todos" : <button onClick={() => deleteTodos()} className="btn">Deleted completed</button>}
         {todos.map(todo => {
           return (
             <li key={todo.id}>
@@ -63,6 +69,7 @@ const App = () => {
             </li>
           )
         })}
+        
       </ul>
     </>
   );
