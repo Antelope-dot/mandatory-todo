@@ -46,10 +46,18 @@ const App = () => {
     )
   }
 
+  const checkTodos = () => {
+    setTodos(
+      todos.map((todo) => {
+          return { ...todo, completed: !todo.completed }
+      })
+    )
+  }
+
   return (
     <>
       <NewTodoForm onSubmit={addTodo} />
-      <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo} deleteTodos={deleteTodos} />
+      <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo} deleteTodos={deleteTodos} checkTodos={checkTodos} />
     </>
   );
 }

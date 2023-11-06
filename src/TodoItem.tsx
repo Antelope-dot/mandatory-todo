@@ -2,8 +2,8 @@ interface Props {
     id: string;
     title: string;
     completed: boolean;
-    toggleTodo: any;
-    deleteTodo: any;
+    toggleTodo: (id: string, completed: boolean) => void;
+    deleteTodo: (id: string) => void;
 }
 
 export const TodoItem = ({ id, completed, title, toggleTodo, deleteTodo }: Props) => {
