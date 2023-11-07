@@ -24,7 +24,6 @@ export const TodoList = ({ todos, toggleTodo, deleteTodo, deleteTodos, checkTodo
                 })}
                 {todos.length === 0 ? "No Todos" : <button onClick={() => deleteTodos()} className="btn"> Delete done </button>}
             </ul>
-
         </>
     )
 }
